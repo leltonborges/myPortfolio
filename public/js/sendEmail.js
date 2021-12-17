@@ -1,4 +1,4 @@
-send.addEventListener('click', function () {
+btnMandar.addEventListener('click', function () {
 
     Email.send({
         Host: process.env.HOST_SMTP,
