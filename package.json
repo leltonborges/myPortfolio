@@ -1,0 +1,31 @@
+{
+  "name": "Devfolio",
+  "version": "1.0.0",
+  "description": "My Portfolio",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leltonborges/myPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leltonborges/myPortfolio/issues"
+  },
+  "homepage": "https://github.com/leltonborges/myPortfolio#readme",
+  "dependencies": {
+    "ejs": "3.1.6",
+    "express": "4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15"
+  }
+}

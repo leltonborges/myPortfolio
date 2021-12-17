@@ -28,7 +28,7 @@
 
   <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top">LELTON BORGES</a>
+      <a class="navbar-brand js-scroll" href="#page-top"><%= name_profile.toUpperCase() %></a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
         aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
@@ -66,7 +66,7 @@
         <div class="container">
           <p class="display-6 color-d">Salve, salve Tech Recruiter's!</p>
           <h1 class="intro-title mb-4">Oi... me chamo Lelton</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Back-end Developer and DevOps Engine</span><strong class="text-slider"></strong></p>
+          <p class="intro-subtitle"><span class="text-slider-items"><%= msg_profile %></span><strong class="text-slider"></strong></p>
           <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Leia mais</a></p>
         </div>
       </div>
@@ -89,10 +89,10 @@
                   </div>
                   <div class="col-sm-6 col-md-7">
                     <div class="about-info">
-                      <p><span class="title-s">Nome: </span> <span>Lelton Borges</span></p>
-                      <p><span class="title-s">Profile: </span> <span>Back-end Developer and Devps Engine</span></p>
-                      <p><span class="title-s">E-mail: </span> <span>leltonshift@gmail.com</span></p>
-                      <p><span class="title-s">Fone: </span> <span>(61) 98201-0457</span></p>
+                      <p><span class="title-s">Nome: </span> <span><%= name_profile %></span></p>
+                      <p><span class="title-s">Profile: </span> <span><%= msg_profile %></span></p>
+                      <p><span class="title-s">E-mail: </span> <span><%= email %></span></p>
+                      <p><span class="title-s">Fone: </span> <span><%= phone %></span></p>
                     </div>
                   </div>
                 </div>
@@ -573,15 +573,15 @@
                     </p>
                     <ul class="list-ico">
                       <li><span class="ion-ios-location"></span> BRASÍLIA - DF</li>
-                      <li><span class="ion-ios-telephone"></span> (61) 99999-0089</li>
-                      <li><span class="ion-email"></span> <a href="mailto:teste@gmail.com">teste@gmail.com</a></li>
+                      <li><span class="ion-ios-telephone"></span><%= phone %></li>
+                      <li><span class="ion-email"></span> <a href="mailto:<%= email %>"><%= email %></a></li>
                     </ul>
                   </div>
                   <div class="socials">
                     <ul>
-                      <li><a href="https://linkedin.com/in/testes"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
-                      <li><a href="https://github.com/testes"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
-                      <li><a href="https://instagram.com/testes"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
+                      <li><a href="https://www.linkedin.com/in/leltonborges/"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
+                      <li><a href="https://github.com/leltonborges"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
+                      <li><a href="https://instagram.com/leltonborges"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
                     </ul>
                   </div>
                 </div>
@@ -596,7 +596,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong>DevFolio - SENAI - 2021</strong>. Todos os direitos reservados</p>
+              <p class="copyright">&copy; <strong>DevFolio - &lagran;elton 2021</strong>.</p>
             </div>
           </div>
         </div>
@@ -620,7 +620,7 @@
   <script src="lib/lightbox/js/lightbox.min.js"></script>
   <script src="lib/typed/typed.min.js"></script>
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="js/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
