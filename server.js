@@ -24,7 +24,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 const my_info = {
-    msg_profile: "Back-end Developer and Devps Engine",
+    msg_profile: "Back-end Developer and DevOps Engine",
     email: "leltonshift@gmail.com",
     phone: "(61) 98201-0457",
     name_profile: "Lelton Borges"
