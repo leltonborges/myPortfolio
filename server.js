@@ -3,8 +3,9 @@ require('dotenv').config()
 const http = require("http")
 const express = require("express")
 const path = require("path")
-const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser')
+const my_info = require('./config/person')
+const transporter = require('./config/sendEmail')
 
 const PORT = process.env.PORT || 5000;
 
@@ -18,28 +19,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-const my_info = {
-    msg_profile: "Back-end Developer and DevOps Engine",
-    email: "leltonshift@gmail.com",
-    phone: "(61) 98201-0457",
-    name_profile: "Lelton Borges"
-}
-
-const my_config_smtp = {
-    username: process.env.MY_USERNAME,
-    password: process.env.MY_PASSWORD,
-    to: process.env.MY_SEND_TO_EMAIL
-}
-
-const transporter = nodemailer.createTransport({
-    host: process.env.HOST_SMTP,
-    port: 465,
-    secure: true,
-    auth: {
-        user: my_config_smtp.username,
-        pass: my_config_smtp.password
-    }
-})
 
 // static files
 app.use(express.static('public'))
@@ -76,7 +55,7 @@ app.post('/contato', (req, res) => {
             html: body
         })
         .then(msg => console.log(msg))
-        .then()
+        .then() // TODO: add modal success
         .then(e => res.redirect("/#contact"))
         .catch(err => {
             console.log(err)
