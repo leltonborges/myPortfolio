@@ -118,28 +118,28 @@ jQuery(document).ready(function($) {
 
     $('#btnMandar').hide();
     $('form input').prop('disabled', true)
-    $('form textarea').prop('disabled', true)
-    fetch("https://envioemail-dimas.herokuapp.com", {
-              method: "POST",
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              body: str+emailsenha
-    })
-    .then(j => j.json())
-    .then(json => {
-      $("#sendmessage").show();
-      $("#errormessage").hide();
-    })
-    .catch(err => {
-      $("#errormessage").val(err.msg).show();
-      $("#sendmessage").hide();
-    })
-    .finally(e => {
-      $('form input').prop('disabled', false)
-      $('form textarea').prop('disabled', false)
-      $('#btnMandar').show();
-    })
+    // $('form textarea').prop('disabled', true)
+    // fetch("https://envioemail-dimas.herokuapp.com", {
+    //           method: "POST",
+    //           headers: {
+    //             'Content-Type': 'application/x-www-form-urlencoded'
+    //           },
+    //           body: str+emailsenha
+    // })
+    // .then(j => j.json())
+    // .then(json => {
+    //   $("#sendmessage").show();
+    //   $("#errormessage").hide();
+    // })
+    // .catch(err => {
+    //   $("#errormessage").val(err.msg).show();
+    //   $("#sendmessage").hide();
+    // })
+    // .finally(e => {
+    //   $('form input').prop('disabled', false)
+    //   $('form textarea').prop('disabled', false)
+    //   $('#btnMandar').show();
+    // })
     
     return false;
   });
