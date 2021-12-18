@@ -1,6 +1,7 @@
 const http = require("http")
 const express = require("express")
 const path = require("path")
+const PORT = process.env.PORT || 5000;
 const {
     pathToFileURL
 } = require("url")
@@ -30,4 +31,4 @@ app.get('/', (req, res) => {
 
 const server = http.createServer(app)
 
-server.listen(3000)
+server.listen(PORT, () => console.log(`Listening on ${PORT}`))
