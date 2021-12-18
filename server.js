@@ -1,12 +1,17 @@
+require('dotenv').config()
+
+const nodemailer = require('nodemailer')
 const http = require("http")
 const express = require("express")
 const path = require("path")
-const PORT = process.env.PORT || 5000;
-const {
-    pathToFileURL
-} = require("url")
+const badyParser = require('body-parser');
 
+const PORT = process.env.PORT || 5000;
 const app = express()
+app.use(badyParser.json())
+app.use(badyParser.urlencoded({
+    extended: true
+}))
 
 // static files
 app.use(express.static('public'))
@@ -18,14 +23,58 @@ app.use('/img', express.static(__dirname + "public/img"))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
+const my_info = {
+    msg_profile: "Back-end Developer and Devps Engine",
+    email: "leltonshift@gmail.com",
+    phone: "(61) 98201-0457",
+    name_profile: "Lelton Borges"
+}
+
+const my_config_smtp = {
+    username: process.env.MY_USERNAME,
+    password: process.env.MY_PASSWORD,
+    to: process.env.MY_SEND_TO_EMAIL
+
+}
+const transporter = nodemailer.createTransport({
+    host: process.env.HOST_SMTP,
+    port: 465,
+    secure: true,
+    auth: {
+        user: my_config_smtp.username,
+        pass: my_config_smtp.password
+    }
+})
+
+
 app.get('/', (req, res) => {
-    // res.sendFile(path.join(`${__dirname}/views/index.html`))
-    res.render('index', 
-    {
-        msg_profile: "Back-end Developer and Devps Engine",
-        email: "leltonshift@gmail.com",
-        phone: "(61) 98201-0457",
-        name_profile: "Lelton Borges"
+    res.render('index', my_info)
+})
+
+app.post('/contato', (req, res) => {
+
+    const nome = req.body.email_envio_nome
+    const email = req.body.email_envio
+    const titulo = req.body.email_envio_assunto
+    const texto = req.body.email_envio_texto
+
+    const subject = `[DEV FOLIO] - CONTATO de ${nome}`
+    const body = `<h3>Assunto: ${titulo}<h3>
+                <p>${texto}</p>
+                </hr>
+                <h3>- ${nome} - ${email}</h3>`;
+
+    transporter.sendMail({
+        from: my_config_smtp.username,
+        to: my_config_smtp.to,
+        subject: subject,
+        html: body
+    })
+    .then(msg => console.log(msg))
+    .then(e => res.render('index', my_info))
+    .catch(err => {
+        console.log(err)
+        res.render('index', my_info)
     })
 })
 
