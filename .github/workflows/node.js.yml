@@ -57,3 +57,5 @@ jobs:
           MY_SEND_FROM_EMAIL: ${{ secrets.MY_SEND_FROM_EMAIL }}
           MY_SEND_TO_EMAIL: ${{ secrets.MY_SEND_TO_EMAIL }}
           MY_USERNAME: ${{ secrets.MY_USERNAME }}
+      - run: npm ci
+      - run: npm start
