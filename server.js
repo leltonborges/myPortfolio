@@ -37,8 +37,8 @@ const my_config_smtp = {
     username: process.env.MY_USERNAME,
     password: process.env.MY_PASSWORD,
     to: process.env.MY_SEND_TO_EMAIL
-
 }
+
 const transporter = nodemailer.createTransport({
     host: process.env.HOST_SMTP,
     port: 465,
@@ -48,7 +48,6 @@ const transporter = nodemailer.createTransport({
         pass: my_config_smtp.password
     }
 })
-
 
 app.get('/', (req, res) => {
     res.render('index', my_info)
@@ -75,10 +74,10 @@ app.post('/contato', (req, res) => {
     })
     .then(msg => console.log(msg))
     .then()
-    .then(e => res.redirect("/"))
+    .then(e => res.redirect("/#contact"))
     .catch(err => {
         console.log(err)
-        res.redirect("/")
+        res.redirect("/#contact")
     })
 })
 
