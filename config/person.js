@@ -8,5 +8,4 @@ const my_info = {
     github: "leltonborges"
 }
 
-
 module.exports = my_info;
