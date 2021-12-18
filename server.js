@@ -5,6 +5,9 @@ const http = require("http")
 const express = require("express")
 const path = require("path")
 const badyParser = require('body-parser');
+const { response } = require('express')
+const { isObject } = require('util')
+const { isKeyObject } = require('util/types')
 
 const PORT = process.env.PORT || 5000;
 const app = express()
@@ -71,11 +74,16 @@ app.post('/contato', (req, res) => {
         html: body
     })
     .then(msg => console.log(msg))
-    .then(e => res.render('index', my_info))
+    .then()
+    .then(e => res.redirect("/"))
     .catch(err => {
         console.log(err)
-        res.render('index', my_info)
+        res.redirect("/")
     })
+})
+
+app.all('/*', (req, res) => {
+    res.redirect('/');
 })
 
 const server = http.createServer(app)
