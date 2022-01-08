@@ -17,4 +17,7 @@ const transporter = nodemailer.createTransport({
 })
 
 
-module.exports= transporter;
+module.exports = {
+    transporter,
+    my_config_smtp
+};

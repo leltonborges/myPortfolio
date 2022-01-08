@@ -5,7 +5,7 @@ const express = require("express")
 const path = require("path")
 const bodyParser = require('body-parser')
 const my_info = require('./config/person')
-const transporter = require('./config/sendEmail')
+const {transporter, my_config_smtp} = require('./config/sendEmail')
 
 const PORT = process.env.PORT || 5000;
 
